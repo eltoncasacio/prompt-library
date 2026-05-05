@@ -1,12 +1,9 @@
 _type: prompt
-id: prompt-conventional-commit-generator
+id: agent-conventional-commit-generator
 version: 1.0.0
 description: Gera mensagens de commit seguindo Conventional Commits a partir de um git diff
 models_tested:
   - qwen2.5-coder:7b   # recomendado
-  - qwen2.5-coder:1.5b # não recomendado, tende a alucinar
-  - llama3.1           # não recomendado, tende a alucinar
-  - gemma3.4b          # não recomendado, tende a alucinar
 input_variables:
   - diff
 template: |

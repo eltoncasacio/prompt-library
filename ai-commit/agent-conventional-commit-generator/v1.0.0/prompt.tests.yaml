@@ -1,2 +1,155 @@
 cases:
- - name: conventional-commit
+  - name: feat_new_function
+    inputs:
+      diff: |
+        diff --git a/src/auth/login.py b/src/auth/login.py
+        index 1234567..abcdefg 100644
+        --- a/src/auth/login.py
+        +++ b/src/auth/login.py
+        @@ -10,6 +10,15 @@ class AuthService:
+             def login(self, username, password):
+                 return self._authenticate(username, password)
+        +
+        +    def login_with_google(self, token):
+        +        """Authenticate user via Google OAuth2 token."""
+        +        payload = self._verify_google_token(token)
+        +        user = self._find_or_create_user(payload['email'])
+        +        return self._generate_session(user)
+    expect_contains:
+      - "feat"
+      - "auth"
+
+  - name: fix_null_handling
+    inputs:
+      diff: |
+        diff --git a/src/api/users.py b/src/api/users.py
+        index 1234567..abcdefg 100644
+        --- a/src/api/users.py
+        +++ b/src/api/users.py
+        @@ -22,7 +22,9 @@ def get_user_profile(user_id):
+        -    return user.to_dict()
+        +    if user is None:
+        +        raise NotFoundError(f"User {user_id} not found")
+        +    return user.to_dict()
+    expect_contains:
+      - "fix"
+
+  - name: docs_readme_update
+    inputs:
+      diff: |
+        diff --git a/README.md b/README.md
+        index 1234567..abcdefg 100644
+        --- a/README.md
+        +++ b/README.md
+        @@ -1,5 +1,12 @@
+         # MyProject
+        -A simple project.
+        +A simple project for managing tasks.
+        +
+        +## Installation
+        +```bash
+        +pip install myproject
+        +```
+        +
+        +## Usage
+        +See the [documentation](docs/README.md) for details.
+    expect_contains:
+      - "docs"
+
+  - name: refactor_extract_method
+    inputs:
+      diff: |
+        diff --git a/src/services/payment.py b/src/services/payment.py
+        index 1234567..abcdefg 100644
+        --- a/src/services/payment.py
+        +++ b/src/services/payment.py
+        @@ -15,12 +15,18 @@ class PaymentService:
+             def process_payment(self, amount, currency):
+        -        rate = self._get_rate(currency)
+        -        converted = amount * rate
+        -        fee = converted * 0.029
+        -        total = converted + fee
+        +        total = self._calculate_total(amount, currency)
+                 return self._charge(total)
+        +
+        +    def _calculate_total(self, amount, currency):
+        +        rate = self._get_rate(currency)
+        +        converted = amount * rate
+        +        fee = converted * 0.029
+        +        return converted + fee
+    expect_contains:
+      - "refactor"
+
+  - name: chore_bump_dependencies
+    inputs:
+      diff: |
+        diff --git a/requirements.txt b/requirements.txt
+        index 1234567..abcdefg 100644
+        --- a/requirements.txt
+        +++ b/requirements.txt
+        @@ -1,4 +1,4 @@
+        -flask==2.0.1
+        -requests==2.26.0
+        -sqlalchemy==1.4.23
+        +flask==3.0.0
+        +requests==2.31.0
+        +sqlalchemy==2.0.21
+    expect_contains:
+      - "chore"
+      - "dependencies"
+
+  - name: test_add_unit_tests
+    inputs:
+      diff: |
+        diff --git a/tests/test_calculator.py b/tests/test_calculator.py
+        new file mode 100644
+        index 0000000..abcdefg
+        --- /dev/null
+        +++ b/tests/test_calculator.py
+        @@ -0,0 +1,15 @@
+        +import pytest
+        +from src.calculator import Calculator
+        +
+        +class TestCalculator:
+        +    def test_add(self):
+        +        calc = Calculator()
+        +        assert calc.add(2, 3) == 5
+        +
+        +    def test_subtract(self):
+        +        calc = Calculator()
+        +        assert calc.subtract(5, 3) == 2
+        +
+        +    def test_divide_by_zero(self):
+        +        calc = Calculator()
+        +        with pytest.raises(ZeroDivisionError):
+        +            calc.divide(1, 0)
+    expect_contains:
+      - "test"
+
+  - name: ci_add_github_actions
+    inputs:
+      diff: |
+        diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+        new file mode 100644
+        index 0000000..abcdefg
+        --- /dev/null
+        +++ b/.github/workflows/ci.yml
+        @@ -0,0 +1,20 @@
+        +name: CI
+        +on:
+        +  push:
+        +    branches: [main]
+        +  pull_request:
+        +    branches: [main]
+        +jobs:
+        +  test:
+        +    runs-on: ubuntu-latest
+        +    steps:
+        +      - uses: actions/checkout@v4
+        +      - uses: actions/setup-python@v5
+        +        with:
+        +          python-version: '3.12'
+        +      - run: pip install -r requirements.txt
+        +      - run: pytest
+    expect_contains:
+      - "ci"
