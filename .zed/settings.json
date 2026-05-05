@@ -1,0 +1,15 @@
+{
+  "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright": {
+          "python": {
+            "pythonPath": "./.venv/bin/python",
+            "venvPath": ".",
+            "venv": ".venv"
+          }
+        }
+      }
+    }
+  }
+}

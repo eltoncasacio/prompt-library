@@ -10,3 +10,9 @@ agents:
     current_version: "1.0.1"
     path: "agent-pull-request-creator/v1.0.1/prompt.yaml"
     model: gpt-5-nano
+
+  agent-conventional-commit-generator:
+    desctiption: "Agente para ser usado com LLM Local (Ollama) para fazer commit"
+    current_version: "v1.0.0"
+    path: "agent-conventional-commit-generator/v1.0.0/prompt.yaml"
+    model: qwen2.5-coder:7b
