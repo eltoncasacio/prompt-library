@@ -1,0 +1,32 @@
+_type: prompt
+id: prompt-conventional-commit-generator
+version: 1.0.0
+description: Gera mensagens de commit seguindo Conventional Commits a partir de um git diff
+models_tested:
+  - qwen2.5-coder:7b   # recomendado
+  - qwen2.5-coder:1.5b # não recomendado, tende a alucinar
+  - llama3.1           # não recomendado, tende a alucinar
+  - gemma3.4b          # não recomendado, tende a alucinar
+input_variables:
+  - diff
+template: |
+  Generate a git commit message following Conventional Commits.
+
+  FORMAT: <type>(<scope>): <description>
+  [optional body only if needed]
+
+  TYPES: feat|fix|docs|style|refactor|perf|test|chore|ci|build
+  RULES:
+  - imperative mood, lowercase, no period, max 72 chars
+  - scope is optional
+  - output ONLY the commit message, nothing else
+
+  EXAMPLES:
+  feat(auth): add Google OAuth2 login
+  fix(api): handle null user response
+  chore: bump dependencies
+
+  DIFF:
+  {diff}
+
+  COMMIT MESSAGE:
