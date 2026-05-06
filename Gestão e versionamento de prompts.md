@@ -6,11 +6,9 @@ Prompts para utilização diária com foco em:
 - pesquisa  
 - exploração  
 
-> Defina se o prompt é para uso pessoal ou para equipe.
-
 ---
 
-## 👥 Gerenciamento de Prompts (Equipe)
+## 👥 Gerenciamento de Prompts
 
 - Tratar prompt como **software**
 - Uso de:
@@ -19,7 +17,6 @@ Prompts para utilização diária com foco em:
   - PRs (Pull Requests)
   - Code Review
   - Evaluation
-  - Produção
 
 ---
 
@@ -28,7 +25,6 @@ Prompts para utilização diária com foco em:
 - Clone o repositório de prompts na sua máquina local
 - Crie um **link simbólico** para uso no projeto
 
-Junto com seu projeto, crie uma pasta prompt e dentro dela crie um arquivo registry.yaml e os prompts 
 
 > ⚠️ Não clone o repositório de prompts dentro do projeto para evitar “poluir o contexto”
 
