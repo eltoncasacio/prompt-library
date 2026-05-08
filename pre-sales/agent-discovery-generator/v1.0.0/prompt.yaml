@@ -9,12 +9,12 @@ description: >
   detalhado ou estimativa de horas.
 tags:
   - discovery
-  - pre-venda
-  - engenharia-de-requisitos
-  - orcamento-macro
-  - analise-de-risco
-  - fase-2
-  - subagente
+  - pre-sales
+  - requirements-engineering
+  - macro-budget
+  - risk-analysis
+  - phase-2
+  - subagent
 input_variables:
   - discovery_aprovado
   - documentos_opcionais
@@ -182,3 +182,37 @@ template: |
   - [ ] Contradições entre documentos foram registradas, não conciliadas.
 
   Se algum item falhar, revise antes de entregar.
+
+  ---
+
+  ## Bloco de Saída Estruturada (para pipeline downstream)
+
+  Após a análise completa, gere obrigatoriamente o bloco abaixo em YAML válido. Este bloco é consumido pelos agentes de pricing e phases — mantenha-o compacto e preciso. Não repita a análise completa aqui.
+
+  [DISCOVERY_SUMMARY]
+  empresa:
+  setor:
+  problema_central:
+  modelo_comercial_recomendado:
+  complexidade_geral:           # Muito Baixa | Baixa | Média | Alta | Muito Alta
+  risco_comercial:              # idem
+  grau_indefinicao:             # idem
+  modulos:
+    - nome:
+      complexidade:             # Baixa | Média | Alta | Muito Alta
+      classificacao:            # Core | Acessório | Fase 2
+    # repetir para cada módulo
+  riscos_relevantes:
+    - item:
+      severidade:               # BAIXO | MÉDIO | ALTO | CRÍTICO
+    # repetir para cada risco
+  premissas:
+    - # uma premissa por linha
+  lacunas_abertas:
+    - # uma lacuna por linha
+  restricoes_comerciais:
+    prazo:
+    orcamento_referencia:
+  itens_fora_mvp:
+    - # um item por linha
+  [/DISCOVERY_SUMMARY]

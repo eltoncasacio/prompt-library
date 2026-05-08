@@ -9,10 +9,10 @@ description: >
   o pipeline de orçamento (Prompt B em diante).
 tags:
   - discovery
-  - entrevista
-  - conversacional
-  - pre-venda
-  - fase-1
+  - interview
+  - conversational
+  - pre-sales
+  - phase-1
 input_variables:
   - contexto_inicial
 template: |
@@ -142,7 +142,7 @@ template: |
   **Exiba ao cliente:**
   "Ótimo! Vou encaminhar para nossa equipe técnica preparar a análise completa. Em breve você receberá a proposta no email cadastrado."
 
-  **Em seguida, gere o bloco de notas estruturadas abaixo.** Este bloco será capturado automaticamente pelo sistema para alimentar o pipeline de orçamento. Preencha com todas as informações coletadas durante a conversa.
+  **Em seguida, gere o bloco de notas estruturadas abaixo.** Este bloco será capturado automaticamente pelo sistema para alimentar o pipeline de orçamento. Preencha com todas as informações coletadas durante a conversa. Para campos que o cliente não mencionou, escreva exatamente: `não mencionado`. Nunca deixe campo em branco.
 
   [DISCOVERY_APROVADO]
   empresa:

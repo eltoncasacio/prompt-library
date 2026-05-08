@@ -1,5 +1,5 @@
 agents:
-  agent-code-reviewr:
+  agent-code-reviewer:
     description: "Agente especializado em revisão rigorosa de código"
     current_version: "1.0.0"
     path: "agent-code-reviewer/v1.0.0/prompt.yaml"
@@ -16,3 +16,33 @@ agents:
     current_version: "1.0.0"
     path: "ai-commit/agent-conventional-commit-generator/v1.0.0/prompt.yaml"
     model: qwen2.5-coder:7b
+
+  agent-discovery-interview:
+    description: "Agente conversacional que conduz a entrevista de discovery com o cliente em tempo real"
+    current_version: "1.0.0"
+    path: "pre-sales/agent-discovery-interview/v1.0.0/prompt.yaml"
+    model: Sonnet 4.5
+
+  agent-discovery-generator:
+    description: "Subagente que produz análise estruturada de discovery em 13 seções para orçamento macro"
+    current_version: "1.0.0"
+    path: "pre-sales/agent-discovery-generator/v1.0.0/prompt.yaml"
+    model: Sonnet 4.5
+
+  agent-pricing:
+    description: "Subagente de precificação que gera breakdown de preço por módulo com faixas defensáveis"
+    current_version: "1.1.0"
+    path: "pre-sales/agent-pricing/v1.0.0/prompt.yaml"
+    model: Sonnet 4.5
+
+  agent-phases:
+    description: "Subagente que organiza a entrega em fases sequenciais com escopo e critérios de aceite"
+    current_version: "1.1.0"
+    path: "pre-sales/agent-phases/v1.0.0/prompt.yaml"
+    model: Sonnet 4.5
+
+  agent-proposal-generator:
+    description: "Subagente final que redige o conteúdo completo da proposta comercial para o cliente"
+    current_version: "1.1.0"
+    path: "pre-sales/agent-proposal-generator/v1.0.0/prompt.yaml"
+    model: Sonnet 4.5

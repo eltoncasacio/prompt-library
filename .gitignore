@@ -1,6 +1,37 @@
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+env/
+.virtualenv/
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+*.cover
+
+# IDEs e editores
 .vscode/
 .zed/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Variáveis de ambiente
 .env
-.pytest_cache/
+.env.local
+
+# Arquivos de build/distribuição
+build/
+dist/
+*.egg-info/

@@ -6,7 +6,7 @@ Repositório de prompts versionados para agentes de IA. Prompts são tratados co
 
 ## Índice Categorizado
 
-### Utils
+### Desenvolvimento
 
 | Agente | Descrição | Versão | Modelo | Prompt |
 |--------|-----------|--------|--------|--------|
@@ -14,36 +14,39 @@ Repositório de prompts versionados para agentes de IA. Prompts são tratados co
 | [agent-pull-request-creator](agent-pull-request-creator/README.md) | Criação de pull requests profissionais e bem documentados | v1.0.1 | gpt-5-nano | [prompt.yaml](agent-pull-request-creator/v1.0.1/prompt.yaml) |
 | [agent-conventional-commit-generator](ai-commit/agent-conventional-commit-generator/README.md) | Commits Conventional via LLM local (Ollama) | v1.0.0 | qwen2.5-coder:7b | [prompt.yaml](ai-commit/agent-conventional-commit-generator/v1.0.0/prompt.yaml) |
 
+### Pré-venda
+
+| Agente | Descrição | Versão | Modelo | Prompt |
+|--------|-----------|--------|--------|--------|
+| [agent-discovery-interview](pre-sales/agent-discovery-interview/README.md) | Entrevista conversacional de discovery com cliente | v1.0.0 | Sonnet 4.5 | [prompt.yaml](pre-sales/agent-discovery-interview/v1.0.0/prompt.yaml) |
+| [agent-discovery-generator](pre-sales/agent-discovery-generator/README.md) | Análise estruturada de discovery em 13 seções | v1.0.0 | Sonnet 4.5 | [prompt.yaml](pre-sales/agent-discovery-generator/v1.0.0/prompt.yaml) |
+| [agent-pricing](pre-sales/agent-pricing/README.md) | Precificação por módulo com faixas defensáveis | v1.1.0 | Sonnet 4.5 | [prompt.yaml](pre-sales/agent-pricing/v1.0.0/prompt.yaml) |
+| [agent-phases](pre-sales/agent-phases/README.md) | Planejamento de fases de entrega sequenciais | v1.1.0 | Sonnet 4.5 | [prompt.yaml](pre-sales/agent-phases/v1.0.0/prompt.yaml) |
+| [agent-proposal-generator](pre-sales/agent-proposal-generator/README.md) | Redação de proposta comercial completa | v1.1.0 | Sonnet 4.5 | [prompt.yaml](pre-sales/agent-proposal-generator/v1.0.0/prompt.yaml) |
+
 ---
 
 ## Estrutura do Repositório
 
 ```
-prompts/
-├── registry.yaml                          # Registro central de agentes e versões
-├── requirements.txt                       # Dependências Python
+prompt-library/
+├── registry.yaml              # Registro central de agentes e versões
+├── requirements.txt           # Dependências Python para testes
 ├── tests/
-│   └── test_prompts.py                    # Validação estática de todos os prompts
-├── agent-code-reviewer/
-│   ├── README.md
-│   └── v1.0.0/
-│       ├── prompt.yaml
-│       └── prompt.tests.yaml
-├── agent-pull-request-creator/
-│   ├── README.md
-│   ├── v1.0.0/
-│   │   ├── prompt.yaml
-│   │   └── prompt.tests.yaml
-│   └── v1.0.1/
-│       ├── prompt.yaml
-│       └── prompt.tests.yaml
-└── ai-commit/
-    └── agent-conventional-commit-generator/
-        ├── README.md
-        └── v1.0.0/
-            ├── prompt.yaml
-            └── prompt.tests.yaml
+│   └── test_prompts.py        # Validação estática de todos os prompts
+│
+├── <categoria>/               # Categoria do agente (ex: pre-sales, ai-commit)
+│   └── <agent-nome>/          # Nome do agente em kebab-case
+│       ├── README.md          # Documentação do agente
+│       ├── v1.0.0/            # Primeira versão (SemVer)
+│       │   ├── prompt.yaml
+│       │   └── prompt.tests.yaml
+│       └── v1.0.1/            # Versão atualizada (se houver)
+│           ├── prompt.yaml
+│           └── prompt.tests.yaml
 ```
+
+Cada agente pode ter múltiplas versões. O `registry.yaml` aponta para a versão atual de cada um.
 
 ### Anatomia de um prompt
 

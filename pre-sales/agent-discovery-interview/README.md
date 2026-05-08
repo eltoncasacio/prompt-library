@@ -1,4 +1,4 @@
-# Agent Entrevista Discovery
+# Agent Discovery Interview
 
 Agente conversacional que conduz a entrevista de discovery com o cliente em tempo real. Substitui formulários e questionários estáticos por uma conversa adaptativa — o agente faz as perguntas certas, no momento certo, na linguagem do cliente. Aceita documentos opcionais enviados durante a conversa e gera um bloco de notas estruturadas aprovadas pelo cliente ao final.
 
@@ -55,3 +55,4 @@ O agente produz dois outputs na mesma sessão:
 - Ciclo de apresentação de resumo com suporte a ajustes iterativos
 - Geração do bloco estruturado `[DISCOVERY_APROVADO]` para o pipeline
 - Auto-verificação antes da apresentação do resumo ao cliente
+- Instrução explícita: campos não mencionados pelo cliente devem receber `não mencionado`
